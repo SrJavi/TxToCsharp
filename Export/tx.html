@@ -1,0 +1,488 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+	<head>
+		<title>TransactionEditor</title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio 7.0">
+		<meta name="CODE_LANGUAGE" content="C#">
+		<meta name="vs_defaultClientScript" content="JavaScript">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</head>
+	
+	<!-- includes -->
+	<script language="javascript" src="FWK/FwkEventSystem.js"></script>
+	<script language="javascript" src="TransactionEditor.js"></script>
+	
+	<style>
+		.mainTable {
+			border: gray 1px solid;
+			font-family: verdana;
+			font-size: x-small;
+			font-weight: bold;
+			margin-bottom: 0px;
+		}
+	</style>
+	
+	<body style="margin: 5px; overflow: auto;" onload="window.setTimeout(init);">
+		<form name="TransactionEditor" method="post" action="./TransactionEditor.aspx?id=ca0e0142-01ae-4e04-99cd-24b4ef444598" id="TransactionEditor">
+<input type="hidden" name="_transaction_guid" id="_transaction_guid" value="ca0e0142-01ae-4e04-99cd-24b4ef444598" />
+<input type="hidden" name="__temp_id" id="__temp_id" value="0" />
+<input type="hidden" name="_transaction" id="_transaction" value="PFRyYW5zYWN0aW9uIGd1aWQ9ImNhMGUwMTQyLTAxYWUtNGUwNC05OWNkLTI0YjRlZjQ0NDU5OCIgbmFtZT0idmVyaWZpY2FyRXN0YWRvc1Blcm1pc29Nb3ZpbWllbnRvTmF2ZSIgZGJsb2dpY2FsbmFtZT0iVU5JWC1TSURFUkFSIiBjb21tYW5kdGV4dD0iQVBULlZpYWplTW9kdWxlLnZlcmlmaWNhckVzdGFkb3NQZXJtaXNvTW92aW1pZW50b05hdmUiIHZlcnNpb249IjAuMSIgZXhwb3J0ZWQ9IkZhbHNlIj48UGFyYW1ldGVycz48UGFyYW1ldGVyIG5hbWU9Im5yb1Blcm1pc28iIHR5cGU9IlN0cmluZyIgZGlyZWN0aW9uPSJJbnB1dCIgdW5pdD0iIiBhY3RpdmU9IlRydWUiIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgcHJvdmlkZXJuYW1lPSJucm9QZXJtaXNvIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBsZW5ndGg9IjEwIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjxQYXJhbWV0ZXIgbmFtZT0iaWROYXZlIiB0eXBlPSJTdHJpbmciIGRpcmVjdGlvbj0iSW5wdXQiIHVuaXQ9IiIgYWN0aXZlPSJUcnVlIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHByb3ZpZGVybmFtZT0iaWROYXZlIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBsZW5ndGg9IjEwIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjwvUGFyYW1ldGVycz48VGFibGVzPjxUYWJsZSBuYW1lPSJyZXN1bHRMbGVnYWRhTmF2ZSIgZGlyZWN0aW9uPSJPdXRwdXQiIHByb3ZpZGVybmFtZT0icmVzdWx0TGxlZ2FkYU5hdmUiPjxDb2x1bW4gbmFtZT0iaGFiaWxpdGFkbyIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iMSIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImhhYmlsaXRhZG8iIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48Q29sdW1uIG5hbWU9ImZlY2hhIiB0eXBlPSJTdHJpbmciIGFjdGl2ZT0iVHJ1ZSIgbGVuZ3RoPSIxMCIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImZlY2hhIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PENvbHVtbiBuYW1lPSJob3JhIiB0eXBlPSJTdHJpbmciIGFjdGl2ZT0iVHJ1ZSIgbGVuZ3RoPSI1IiB1bml0PSIiIHByb3ZpZGVybmFtZT0iaG9yYSIgcHJvdmlkZXJmb3JtYXQ9IlN0cmluZyIgb3B0aW9uYWw9IlRydWUiIGRlZmF1bHR2YWx1ZT0iIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjwvVGFibGU+PFRhYmxlIG5hbWU9InJlc3VsdEluZ3Jlc29OYXZlIiBkaXJlY3Rpb249Ik91dHB1dCIgcHJvdmlkZXJuYW1lPSJyZXN1bHRJbmdyZXNvTmF2ZSI+PENvbHVtbiBuYW1lPSJoYWJpbGl0YWRvIiB0eXBlPSJTdHJpbmciIGFjdGl2ZT0iVHJ1ZSIgbGVuZ3RoPSIxIiB1bml0PSIiIHByb3ZpZGVybmFtZT0iaGFiaWxpdGFkbyIgcHJvdmlkZXJmb3JtYXQ9IlN0cmluZyIgb3B0aW9uYWw9IlRydWUiIGRlZmF1bHR2YWx1ZT0iIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjxDb2x1bW4gbmFtZT0iZmVjaGEiIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjEwIiB1bml0PSIiIHByb3ZpZGVybmFtZT0iZmVjaGEiIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48Q29sdW1uIG5hbWU9ImhvcmEiIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjUiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJob3JhIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PC9UYWJsZT48VGFibGUgbmFtZT0icmVzdWx0SW5pY2lvQ2FyZ2FOYXZlIiBkaXJlY3Rpb249Ik91dHB1dCIgcHJvdmlkZXJuYW1lPSJyZXN1bHRJbmljaW9DYXJnYU5hdmUiPjxDb2x1bW4gbmFtZT0iaGFiaWxpdGFkbyIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iMSIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImhhYmlsaXRhZG8iIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48Q29sdW1uIG5hbWU9ImZlY2hhIiB0eXBlPSJTdHJpbmciIGFjdGl2ZT0iVHJ1ZSIgbGVuZ3RoPSIxMCIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImZlY2hhIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PENvbHVtbiBuYW1lPSJob3JhIiB0eXBlPSJTdHJpbmciIGFjdGl2ZT0iVHJ1ZSIgbGVuZ3RoPSI1IiB1bml0PSIiIHByb3ZpZGVybmFtZT0iaG9yYSIgcHJvdmlkZXJmb3JtYXQ9IlN0cmluZyIgb3B0aW9uYWw9IlRydWUiIGRlZmF1bHR2YWx1ZT0iIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjwvVGFibGU+PFRhYmxlIG5hbWU9InJlc3VsdEZpbkNhcmdhTmF2ZSIgZGlyZWN0aW9uPSJPdXRwdXQiIHByb3ZpZGVybmFtZT0icmVzdWx0RmluQ2FyZ2FOYXZlIj48Q29sdW1uIG5hbWU9ImhhYmlsaXRhZG8iIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjEiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJoYWJpbGl0YWRvIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PENvbHVtbiBuYW1lPSJmZWNoYSIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iMTAiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJmZWNoYSIgcHJvdmlkZXJmb3JtYXQ9IlN0cmluZyIgb3B0aW9uYWw9IlRydWUiIGRlZmF1bHR2YWx1ZT0iIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjxDb2x1bW4gbmFtZT0iaG9yYSIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iNSIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImhvcmEiIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48L1RhYmxlPjxUYWJsZSBuYW1lPSJyZXN1bHRTYWxpZGFOYXZlIiBkaXJlY3Rpb249Ik91dHB1dCIgcHJvdmlkZXJuYW1lPSJyZXN1bHRTYWxpZGFOYXZlIj48Q29sdW1uIG5hbWU9ImhhYmlsaXRhZG8iIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjEiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJoYWJpbGl0YWRvIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PENvbHVtbiBuYW1lPSJmZWNoYSIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iMTAiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJmZWNoYSIgcHJvdmlkZXJmb3JtYXQ9IlN0cmluZyIgb3B0aW9uYWw9IlRydWUiIGRlZmF1bHR2YWx1ZT0iIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjxDb2x1bW4gbmFtZT0iaG9yYSIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iNSIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImhvcmEiIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48L1RhYmxlPjxUYWJsZSBuYW1lPSJyZXN1bHRDb25maWd1cmFjaW9uQW5kZW5lcyIgZGlyZWN0aW9uPSJPdXRwdXQiIHByb3ZpZGVybmFtZT0icmVzdWx0Q29uZmlndXJhY2lvbkFuZGVuZXMiPjxDb2x1bW4gbmFtZT0iaGFiaWxpdGFkbyIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iMCIgdW5pdD0iIiBwcm92aWRlcm5hbWU9ImhhYmlsaXRhZG8iIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48Q29sdW1uIG5hbWU9ImlkVWJpY2FjaW9uQW5kZW4iIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjAiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJpZFViaWNhY2lvbkFuZGVuIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PENvbHVtbiBuYW1lPSJkZXNjVWJpY2FjaW9uQW5kZW4iIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjAiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJkZXNjVWJpY2FjaW9uQW5kZW4iIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48L1RhYmxlPjxUYWJsZSBuYW1lPSJXc01lc3NhZ2UiIGRpcmVjdGlvbj0iT3V0cHV0IiBwcm92aWRlcm5hbWU9IldzTWVzc2FnZSI+PENvbHVtbiBuYW1lPSJNZXNzYWdlIiB0eXBlPSJTdHJpbmciIGFjdGl2ZT0iVHJ1ZSIgbGVuZ3RoPSIwIiB1bml0PSIiIHByb3ZpZGVybmFtZT0iTWVzc2FnZSIgcHJvdmlkZXJmb3JtYXQ9IlN0cmluZyIgb3B0aW9uYWw9IlRydWUiIGRlZmF1bHR2YWx1ZT0iIiB0cmltPSJGYWxzZSIgZGljdGlvbmFyeUl0ZW1JZD0iMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiBkaWN0aW9uYXJ5SXRlbUtleT0iIiAvPjxDb2x1bW4gbmFtZT0iQ29kZSIgdHlwZT0iU3RyaW5nIiBhY3RpdmU9IlRydWUiIGxlbmd0aD0iMCIgdW5pdD0iIiBwcm92aWRlcm5hbWU9IkNvZGUiIHByb3ZpZGVyZm9ybWF0PSJTdHJpbmciIG9wdGlvbmFsPSJUcnVlIiBkZWZhdWx0dmFsdWU9IiIgdHJpbT0iRmFsc2UiIGRpY3Rpb25hcnlJdGVtSWQ9IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIgZGljdGlvbmFyeUl0ZW1LZXk9IiIgLz48Q29sdW1uIG5hbWU9IkRldGFpbHMiIHR5cGU9IlN0cmluZyIgYWN0aXZlPSJUcnVlIiBsZW5ndGg9IjAiIHVuaXQ9IiIgcHJvdmlkZXJuYW1lPSJEZXRhaWxzIiBwcm92aWRlcmZvcm1hdD0iU3RyaW5nIiBvcHRpb25hbD0iVHJ1ZSIgZGVmYXVsdHZhbHVlPSIiIHRyaW09IkZhbHNlIiBkaWN0aW9uYXJ5SXRlbUlkPSIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIGRpY3Rpb25hcnlJdGVtS2V5PSIiIC8+PC9UYWJsZT48L1RhYmxlcz48VGVjaG5pY2FsU3BlY2lmaWNhdGlvbj48RGVzY3JpcHRpb24+PC9EZXNjcmlwdGlvbj48SW5wdXRzPjwvSW5wdXRzPjxPdXRwdXRzPjwvT3V0cHV0cz48T2JzZXJ2YXRpb25zPjwvT2JzZXJ2YXRpb25zPjwvVGVjaG5pY2FsU3BlY2lmaWNhdGlvbj48L1RyYW5zYWN0aW9uPg__" />
+<input type="hidden" name="_transactionChanged" id="_transactionChanged" value="false" />
+<input type="hidden" name="__Tabstrip1_State__" id="__Tabstrip1_State__" value="0" />
+<input type="hidden" name="__MultiPage1_State__" id="__MultiPage1_State__" value="0" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__COMPRESSED_VIEWSTATE" id="__COMPRESSED_VIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['TransactionEditor'];
+if (!theForm) {
+    theForm = document.TransactionEditor;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script language="JavaScript">
+function Help()
+{ 
+window.showModelessDialog("?=0", null, "dialogWidth: 800px; dialogHeight: 600px; status: 0; resizable: 1;");
+}
+</script>
+<script language="javaScript">
+	function selectAll(grid, column, checked)
+	{
+		for(var i=1; i < document.all[grid].childNodes[0].childNodes.length; i++)
+		{
+			document.all[grid].childNodes[0].childNodes[i].childNodes[column-1].childNodes[0].childNodes[0].childNodes[0].checked = checked;
+		}
+	}
+</script>
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAE6vVXD1oYELeveMr0vHCmYP14y2h1QIk1IjSCbcEE5zXx6CbMy4K4QbUyi2Wt5JtctCcuQSXX25BXJBMFNL+MTZtO6BNs56Q5qok+bv/FrDIHi3QtcAYd9t1D6+CUZEGlYJhtvXAPm+tEGJgVi9j/ib4tiwPqCzeSoyMhudoHj9KzP5KQeTGVWhJoGclyccQcdvedgmbsT/fOL5cXZiPILrYrmA0O2gLqWTvvWXNAHRbF5v5QzX9Fo8V1fC12r+SlBWmzEW4v9gOKGVel5HCtHaBMkq9s2n9gUp5Rlcl1eDAsmbXrtnTW74uB0qedBt4fNzRTd7pM8FPz1IPSK8JH77fJY5kHVAXtvgefeUcEAluFFISotAbcTjrbFQzw5xaQyxq0anFtOcmnSofl9WYij70yyqOK5jX68OasYO2E3tP+46NlKlYJVtHTVsflN4n3AoXKXu7HEgTmKXq/6tHx6vDfqoFrtCLmpTVtbIjZud8/pBNAIO3yMNUomqzs/eSl42Yp7rZlQq3Xr4ge5KLXXMRJiLDPw/bu89JaKXXTzQqDUEdzw6VeDROgrqmIHr8sqfMjxGrhaMWk8h3dmaCLw3uyJLC3s06dFlZTesZ83oqsvXTmq+BI4OrNhiUrMGcdVM33FHQl4/q+FrMzLJocimuswSYxOvMRSTwalJc7A6u1pwnHc+XBQDtGqcoQ4uqxhQRkPVKhUGkAH5nM3nuiQih+sVmmyEOwvInlPBRPtryDydKMfGBWBKiG+gfh4djgyw3WDkcq36IN+4mk4KIbJmclUecjIABe3fxkBQBsqWfa0LWKqFOhaVxOAmXlmKCYiQg9sE5Q9CRKYaaJtKkxAxgcVViIJG4NEnrZZ9acVq6VMx5raaXWcJhZLCjXAIZQ/pPXzmeqY5dsYs1fzK0PipFWVeuL2hgXdkVRkk6qbKCvONb74WQTieKGkzYJVR57KsOHUZTPZqqEMdyHRMdK4fJMQlswgVxLFtii6a65mKX7w6X8c7N0sbS6V+3hCkAn2yrTbesaIcW+DKqq07HxCaBZQuKyCxWlCT5hNP38tVTHyOOPNsebwKy7svWS6WbmA+etlIee2JxT3WTjyaGR3bXIPHBLo/LWol9d6QBNmD5VAIoebc6vG5KhLSXs9mnaC61rIdtxgP7SNnHyNSQdN1KODw2pHrhK+NDCxFDKPrC0gBBRYeQAZ0xsIu1SWEK8QvDMU0AgYXHgzVgxXd05oKBTqbVqjsSZGz01TJk9nmFom0PyFOJsYc6r8jz8S0hb0aBhDnb5R0TYZ7mI8TlK1IH6YHMHmK31BwFC0vlI5IvzbggZkd4V3rCuySf0h9Y5FxyydQ0BXUwrew6MDF68dg0Y/bd5Td1p7tITsMvVfj06OBZksAe+d0qeIVdhMCkT6nJa6vO70kIq9BblyrKDLYv/ByBhEk0aN1dLVjqXt2xB4y5CGCXbdK9uRjlHiSPnC3XHblV5zA2MgfHVxnmutpR2Lt1HwsOqhlLRlb9YYEwxWw/PsHeV0ZGaEF5C0w1rF0+Y9n8h9PKEIY+fGTLx9ZiROSPXIZQQXDl2sfmbnmziBpoaRwnA8o3uEPtkn7rpJGpbzQrqYKHuz/G+x2pNxABqdB7wOH5vayK3UC7Hwsg1g941kRZ144sLJFtmvGQfhSGJeZ0+kON2EuWVW+Yt6vxEUdSQ==" />
+			<input type="hidden" name="enableTrims" id="enableTrims" value="false">
+			<input name="fieldModified" type="hidden" id="fieldModified" value="false" />
+			<input name="selectedItemId" type="hidden" id="selectedItemId" />
+			<input name="selectedItemName" type="hidden" id="selectedItemName" />
+			<input name="entityTable" type="hidden" id="entityTable" />
+			<!-- <input name="mappingFieldType" type="hidden" id="mappingFieldType" /> -->
+			<!-- <input name="mappingFieldName" type="hidden" id="mappingFieldName" /> -->
+			<div id="svc" style="behavior: url(webservice.htc); display: none;"></div>
+			<table width="100%" class="mainTable" cellspacing="0" cellpadding="0" background="img\fondo_nl1.jpg">
+				<tr>
+					<td valign="top" width="50"></td>
+					<td valign="top" align="middle">
+						<table width="702" cellspacing="0" cellpadding="0" border="0">
+							<tr height="110">
+								<td valign="top" align="middle">
+									<?xml version="1.0" encoding="Windows-1252"?>
+<style>
+	.headerTable {
+		padding: 0px;
+		margin: 0px;
+		border-collapse: collapse;
+		height: 110px;
+		width: 700px;
+		background-color: white;
+	}
+	
+	.textbox {
+		border: none;
+		border-bottom: lightgrey 1pt solid;
+		font-family: tahoma;
+		font-weight: bold;
+		color: #76BEE9;
+	}
+</style>
+
+<table class="headerTable" cellSpacing="0" cellPadding="0" border="0">
+	<tr>
+		<td noWrap borderColor="gray" background="img/barratitulo_t2.png" colSpan="1" height="22" rowSpan="1">&nbsp;</td>
+	</tr>
+	<tr>
+		<td style="border: gray 1px solid" align="middle" height="91">
+			<table width="690" style="font-size: 12;">
+				<tr height="24">
+					<td>
+						Transacción:
+					</td>
+					<td>
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tr>
+								<td align="left"><input name="TextBoxTransaccion" type="text" value="verificarEstadosPermisoMovimientoNave" maxlength="50" id="TextBoxTransaccion" class="textbox" onkeydown="onKeyDown()" onkeypress="onKeyPress()" onpaste="onPaste()" style="height:20px;width:340px;" /></td>
+							</tr>
+						</table>
+					</td>
+          <td align="right"><input type="submit" name="ButtonTest" value="Prueba" onclick="testTransaction();" language="javascript" id="ButtonTest" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" /></td>
+					<td style="WIDTH: 102px;"><input type="submit" name="ButtonTechSpec" value="Espec.Técnica" onclick="showTechnicalSpecification();" language="javascript" id="ButtonTechSpec" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" /></td>
+				</tr>
+				<tr height="24">
+					<td>Descripción:</td>
+					<td>
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tr>
+								<td align="left"><input name="TextBoxDescription" type="text" maxlength="50" id="TextBoxDescription" class="textbox" onkeydown="onKeyDown()" onkeypress="onKeyPress()" onpaste="onPaste()" style="height:20px;width:340px;" /></td>
+							</tr>
+						</table>
+					</td>
+          <td align="right"><input type="submit" name="ButtonReferences" value="Ref. Operaciones" id="ButtonReferences" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" /></td>
+					<td style="WIDTH: 102px;"><input type="submit" name="ButtonSave" value="Almacenar" id="ButtonSave" disabled="disabled" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" /></td>
+				</tr>
+				<tr height="24">
+					<td>Sistema:</td>
+          <td>
+            <input name="TextBoxSystem" type="text" value="UNIX" readonly="readonly" id="TextBoxSystem" class="textbox" style="height:20px;width:108px;" />	Conexión:
+            <input name="TextboxLogicalName" type="text" value="UNIX-SIDERAR" readonly="readonly" id="TextboxLogicalName" class="textbox" style="height:20px;width:197px;" />
+          </td>
+          <td align="right"><input type="submit" name="ButtonClearQuest" value="Clear Quest" id="ButtonClearQuest" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" /></td>
+					<td style="WIDTH: 102px;"><input type="submit" name="ButtonCancel" value="Cancelar" id="ButtonCancel" disabled="disabled" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" /></td>
+				</tr>
+				<tr height="24">
+					<td>Versión:</td>
+					<td>
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tr>
+								<td align="left">
+									<input name="TextBoxVersion" type="text" value="0.1" readonly="readonly" id="TextBoxVersion" class="textbox" style="height:20px;width:50px;" />
+									
+									
+								</td>
+                <td>
+                  <span id="lblExported" style="font-family:verdana;font-size:12px;">Exported:</span>
+                  <input id="CheckBoxExported" type="checkbox" name="CheckBoxExported" />
+                </td>
+								</tr>
+						</table>
+					</td>
+          <td align="right">
+            &nbsp;<input type="submit" name="ButtonPromoteVersion" value="Promover Ver." id="ButtonPromoteVersion" Title="Promover Versión" style="font-family:Tahoma;font-size:8pt;width:102px;cursor: default;" />
+          </td>
+          <td>
+            <input type="submit" name="ButtonHistory" value="Historial" onclick="showHistory();" language="javascript" id="ButtonHistory" style="font-family:Tahoma;font-size:8pt;height:20px;width:102px;cursor: default;" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span id="lblRedirect">Probar contra:</span>
+            <select name="ddlRedirect" id="ddlRedirect">
+	<option value="">UNIX-SIDERAR</option>
+	<option value="AMN">AMN - LINUX-AMN</option>
+	<option value="AMS">AMS - LINUX-AMS</option>
+	<option value="LINUX-AMN">LINUX-AMN - LINUX-AMN</option>
+	<option value="LINUX-AMS">LINUX-AMS - LINUX-AMS</option>
+
+</select>
+          </td>
+          <td align="right">
+            <input type="submit" name="ButtonAttributes" value="Atributos" onclick="showAttributesEditor();" language="javascript" id="ButtonAttributes" style="font-family:Tahoma;font-size:8pt;height:20px;width:102px;cursor: default;" />
+          </td>
+          <td></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<script>
+  function TransactionEditor.CheckBoxExported::onclick()
+  {
+    setDirty();
+  }
+
+  function TransactionEditor.ButtonReferences::onclick()
+  {
+  RefOperations();
+  }
+
+  function TransactionEditor.ButtonSave::onclick()
+  {
+  if(trim(TransactionEditor.TextBoxTransaccion.value) == "")
+  {
+  alert("El nombre de la transacción no puede estar en blanco.");
+  document.TransactionEditor.TextBoxTransaccion.value = "";
+  document.TransactionEditor.TextBoxTransaccion.focus();
+  window.event.returnValue = false;
+  return;
+  }
+
+  var s = trim(TransactionEditor.TextBoxTransaccion.value);
+  var ok = 0;
+  for(i = 0; i < s.length; i++)
+	{
+		if(s.charAt(i) == "<" || s.charAt(i) == ">" || s.charAt(i) == "'" || s.charAt(i) == "\"")
+		{
+			alert("Los caracteres '<', '>', ''' y '\"' no están permitidos");
+			window.event.returnValue = false;
+			ok = 1;
+			break;
+		}
+	}
+	
+	if(ok == 0)
+	{
+		Save();
+	}
+}
+function trim( text )
+{ 
+	text += ' ';
+	text = text.replace(/\s+$/,"");
+	text = text.replace(/^\s+/,"");
+	return text; 
+}
+</script><textarea name="TextBoxTsDescription" wrap="off" id="TextBoxTsDescription" style="DISPLAY: none">
+</textarea>
+<textarea name="TextBoxTsInputs" wrap="off" id="TextBoxTsInputs" style="DISPLAY: none">
+</textarea>
+<textarea name="TextBoxTsOutputs" wrap="off" id="TextBoxTsOutputs" style="DISPLAY: none">
+</textarea>
+<textarea name="TextBoxTsObservations" wrap="off" id="TextBoxTsObservations" style="DISPLAY: none">
+</textarea>
+<input name="TextBoxExportedName" type="text" value="verificarEstadosPermisoMovimientoNave" id="TextBoxExportedName" style="DISPLAY: none" />
+<input name="TextBoxExportedNamespace" type="text" value="UNIX-SIDERAR.APT.ViajeModule" id="TextBoxExportedNamespace" style="DISPLAY: none" />
+
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" align="right" height="10"></td>
+							</tr>
+							<tr>
+								<td valign="top" align="left">
+									<div id="PanelContent" style="background-color:White;border-color:DimGray;border-width:1px;border-style:Solid;height:395px;width:100%;PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 1px; MARGIN-RIGHT: 1px; PADDING-TOP: 5px; BORDER-BOTTOM: medium none">
+	
+										
+<table width="690" style="FONT-SIZE: x-small">
+	<tr>
+		<td>Frente:</td>
+		<td width="100%">
+			<input name="_ctl2:TextBoxFront" type="text" value="APT" id="_ctl2_TextBoxFront" class="textbox" style="height:20px;width:413px;" />
+		</td>
+		<td>
+			<input type="submit" name="_ctl2:ButtonShowDiff" value="Verificar..." onclick="VerifyWS(&#39;ca0e0142-01ae-4e04-99cd-24b4ef444598&#39;);" language="javascript" id="_ctl2_ButtonShowDiff" style="font-family:Tahoma;font-size:8pt;width:102px;" />
+		</td>
+		<td>
+			<input type="submit" name="_ctl2:ButtonImportar" value="Importar..." onclick="ImportarWS(&#39;UNIX-SIDERAR&#39;);" language="javascript" id="_ctl2_ButtonImportar" style="font-family:Tahoma;font-size:8pt;width:102px;" />
+		</td>
+	</tr>
+	<tr height="24">
+		<td>Módulo:</td>
+		<td width="100%" colspan="3"><input name="_ctl2:TextBoxModule" type="text" value="ViajeModule" id="_ctl2_TextBoxModule" class="textbox" style="height:20px;width:253px;" />&nbsp;SystemEvent:&nbsp;<input name="_ctl2:TextBoxSysEv" type="text" value="verificarEstadosPermisoMovimientoNave" id="_ctl2_TextBoxSysEv" class="textbox" style="height:20px;width:253px;" /></td>
+	</tr>
+</table>
+<br>
+<script language="javascript">
+	function ImportarWS(dblogicalname)
+	{
+		var module = document.all['_ctl2:TextBoxModule'].value;
+		
+		var ret = window.showModalDialog("SystemHeaders/Dialogs/DlgEjbWs/ImportarEjbWsDlg.aspx?LogicalName=" + dblogicalname + "&Module=" + encodeURI(module) , null, "dialogWidth: 600px; dialogHeight: 262px; status: no; help: no;");
+		
+		if (ret == null) 
+		{
+			window.event.returnValue = false;			
+		} 
+		else 
+		{
+			document.all['_ctl2:TextBoxFront'].value = ret.front;
+			document.all['_ctl2:TextBoxModule'].value = ret.module;
+			document.all['_ctl2:TextBoxSysEv'].value = ret.systemevent;
+			document.all["enableTrims"].value = ret.checkTrims;
+		}
+	}
+	
+	function VerifyWS(transactionGuid) 
+	{	
+		window.showModalDialog("SystemHeaders/Dialogs/BackendDifferences/BackendDifferencesDlg.aspx?id=" + transactionGuid , null, "dialogWidth: 710px; dialogHeight: 400px; status: no; help: no;");
+		window.event.returnValue = false;
+	}
+</script>
+										<?XML:NAMESPACE PREFIX="TSNS" /><?IMPORT NAMESPACE="TSNS" IMPLEMENTATION="/webctrl_client/1_0/tabstrip.htc" />
+	<TSNS:TabStrip id="Tabstrip1" selectedIndex="0" targetID="MultiPage1" tabDefaultStyle="border:solid 1px black;background:#dddddd;padding-left:5px;padding-right:5px;" tabHoverStyle="color:red;background:#dddddd;" tabSelectedStyle="border:solid 1px black;border-bottom:none;background:white;padding-left:5px;padding-right:5px;" sepDefaultStyle="border-bottom:solid 1px #000000;" onSelectedIndexChange="JScript:document.TransactionEditor.__Tabstrip1_State__.value=event.index" onwcready="JScript:try{document.TransactionEditor.__Tabstrip1_State__.value=selectedIndex}catch(e){}" style="FONT-WEIGHT: bold; FONT-SIZE: x-small; FONT-FAMILY: verdana; BACKGROUND-COLOR: transparent">
+
+		<TSNS:Tab>Parámetros</TSNS:Tab>
+		<TSNS:TabSeparator />
+		<TSNS:Tab>Tablas</TSNS:Tab>
+		<TSNS:TabSeparator defaultStyle="width:100%;" />
+
+	</TSNS:TabStrip>
+										<?XML:NAMESPACE PREFIX="MPNS" /><?IMPORT NAMESPACE="MPNS" IMPLEMENTATION="/webctrl_client/1_0/multipage.htc" />
+	<MPNS:MultiPage id="MultiPage1" selectedIndex="0" onSelectedIndexChange="JScript:document.TransactionEditor.__MultiPage1_State__.value=event.selectedIndex" style="display:inline-block;height:100%;BORDER-RIGHT: #000000 1px solid; BORDER-TOP: medium none; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid">
+		<MPNS:PageView style="margin-top: 5px; text-align: center">
+			
+												<table cellspacing="0" cellpadding="4" rules="all" bordercolor="#76BEE9" border="1" id="DataGridParameters" style="background-color:White;border-color:#76BEE9;border-width:1px;border-style:None;width:670px;border-collapse:collapse;">
+				<tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;font-weight:bold;">
+					<td>
+				<b>Activo</b>
+			</td><td><b>Nombre</b></td><td>Tipo</td><td>Dirección</td><td>
+				<b>Unidad</b>
+			</td><td>Nombre OLTP</td><td>Tipo OLTP</td><td>Longitud</td><td>
+				<b>Opcional</b>
+			</td><td>
+				<b>Valor&nbsp;por&nbsp;Defecto</b>
+			</td><td align="center"><span style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;font-weight:bold;">Trim<br></span><input id="DataGridParameters__ctl1_chkSelectAll" type="checkbox" name="DataGridParameters:_ctl1:chkSelectAll" onclick="selectAll(&quot;DataGridParameters&quot;, 11, eval(this.checked));" /></td>
+				</tr><tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;">
+					<td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridParameters__ctl2_CheckBoxActive" type="checkbox" name="DataGridParameters:_ctl2:CheckBoxActive" checked="checked" onclick="setDirty();" /></span>
+				</center>
+			</td><td>
+				<nobr>
+				<input name="DataGridParameters:_ctl2:TextBoxName" type="text" value="nroPermiso" id="DataGridParameters__ctl2_TextBoxName" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:80px;" />
+				
+				</nobr>
+			</td><td>String</td><td>Input</td><td align="center" style="width:35px;">
+				<input name="DataGridParameters:_ctl2:TextBoxUnit" type="text" id="DataGridParameters__ctl2_TextBoxUnit" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:35px;" />
+			</td><td>nroPermiso</td><td>String</td><td>10</td><td>
+				<center>
+				<span disabled="disabled" style="width:20px;"><input id="DataGridParameters__ctl2_CheckBoxOptional" type="checkbox" name="DataGridParameters:_ctl2:CheckBoxOptional" checked="checked" disabled="disabled" /></span>
+				</center>
+			</td><td style="width:120px;">
+				<input id="DataGridParameters__ctl2_CheckBoxDefaultValue" type="checkbox" name="DataGridParameters:_ctl2:CheckBoxDefaultValue" checked="checked" onclick="setDirty();nextSibling.disabled=!this.checked;if(this.checked)nextSibling.focus();" /><input name="DataGridParameters:_ctl2:TextBoxDefaultValue" type="text" maxlength="255" id="DataGridParameters__ctl2_TextBoxDefaultValue" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:100px;" />
+			</td><td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridParameters__ctl2_CheckBoxTrim" type="checkbox" name="DataGridParameters:_ctl2:CheckBoxTrim" onclick="setDirty();" /></span>
+				</center>
+			</td>
+				</tr><tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;">
+					<td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridParameters__ctl3_CheckBoxActive" type="checkbox" name="DataGridParameters:_ctl3:CheckBoxActive" checked="checked" onclick="setDirty();" /></span>
+				</center>
+			</td><td>
+				<nobr>
+				<input name="DataGridParameters:_ctl3:TextBoxName" type="text" value="idNave" id="DataGridParameters__ctl3_TextBoxName" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:80px;" />
+				
+				</nobr>
+			</td><td>String</td><td>Input</td><td align="center" style="width:35px;">
+				<input name="DataGridParameters:_ctl3:TextBoxUnit" type="text" id="DataGridParameters__ctl3_TextBoxUnit" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:35px;" />
+			</td><td>idNave</td><td>String</td><td>10</td><td>
+				<center>
+				<span disabled="disabled" style="width:20px;"><input id="DataGridParameters__ctl3_CheckBoxOptional" type="checkbox" name="DataGridParameters:_ctl3:CheckBoxOptional" checked="checked" disabled="disabled" /></span>
+				</center>
+			</td><td style="width:120px;">
+				<input id="DataGridParameters__ctl3_CheckBoxDefaultValue" type="checkbox" name="DataGridParameters:_ctl3:CheckBoxDefaultValue" checked="checked" onclick="setDirty();nextSibling.disabled=!this.checked;if(this.checked)nextSibling.focus();" /><input name="DataGridParameters:_ctl3:TextBoxDefaultValue" type="text" maxlength="255" id="DataGridParameters__ctl3_TextBoxDefaultValue" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:100px;" />
+			</td><td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridParameters__ctl3_CheckBoxTrim" type="checkbox" name="DataGridParameters:_ctl3:CheckBoxTrim" onclick="setDirty();" /></span>
+				</center>
+			</td>
+				</tr>
+			</table>
+		</MPNS:PageView>
+		<MPNS:PageView style="margin: 5px">
+			
+												<span style="font-size: xx-small;">
+													<b>Tablas:&nbsp;</b>
+													<select name="ListTables" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ListTables\&#39;,\&#39;\&#39;)&#39;, 0)" language="javascript" id="ListTables" style="font-size:XX-Small;width:250px;">
+				<option selected="selected" value="resultLlegadaNave">resultLlegadaNave</option>
+				<option value="resultIngresoNave">resultIngresoNave</option>
+				<option value="resultInicioCargaNave">resultInicioCargaNave</option>
+				<option value="resultFinCargaNave">resultFinCargaNave</option>
+				<option value="resultSalidaNave">resultSalidaNave</option>
+				<option value="resultConfiguracionAndenes">resultConfiguracionAndenes</option>
+				<option value="WsMessage">WsMessage</option>
+
+			</select>
+													<br><br>
+													<b>Dirección:</b>
+													<span id="LabelTableDirection">Output</span>
+												</span>
+												<br><br>
+												<table cellspacing="0" cellpadding="4" rules="all" bordercolor="#76BEE9" border="1" id="DataGridTableColumns" style="background-color:White;border-color:#76BEE9;border-width:1px;border-style:None;width:670px;border-collapse:collapse;">
+				<tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;font-weight:bold;">
+					<td>
+				<b>Activo</b>
+			</td><td><b>Nombre</b></td><td>Tipo</td><td><b>Unidad</b></td><td>OLTP</td><td>Tipo OLTP</td><td>Longitud</td><td><b>Opcional</b></td><td align="center"><span style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;font-weight:bold;">Trim<br></span><input id="DataGridTableColumns__ctl1_chkSelectAll" type="checkbox" name="DataGridTableColumns:_ctl1:chkSelectAll" onclick="selectAll(&quot;DataGridTableColumns&quot;, 9, eval(this.checked));" /></td>
+				</tr><tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;">
+					<td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridTableColumns__ctl2_CheckBoxActive" type="checkbox" name="DataGridTableColumns:_ctl2:CheckBoxActive" checked="checked" onclick="setDirty();" /></span>
+				</center>
+			</td><td>
+				<nobr>
+				<input name="DataGridTableColumns:_ctl2:TextboxName" type="text" value="habilitado" id="DataGridTableColumns__ctl2_TextboxName" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:80px;" />
+				
+				</nobr>
+			</td><td>String</td><td align="center" style="width:35px;">
+				<input name="DataGridTableColumns:_ctl2:TextBoxUnit" type="text" id="DataGridTableColumns__ctl2_TextBoxUnit" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:35px;" />
+			</td><td>habilitado</td><td>String</td><td>1</td><td>
+				<center>
+					<span disabled="disabled" style="width:20px;"><input id="DataGridTableColumns__ctl2_CheckBoxOptional" type="checkbox" name="DataGridTableColumns:_ctl2:CheckBoxOptional" checked="checked" disabled="disabled" /></span>
+				</center>
+			</td><td>
+				<center>
+					<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridTableColumns__ctl2_CheckBoxTrim" type="checkbox" name="DataGridTableColumns:_ctl2:CheckBoxTrim" onclick="setDirty();" /></span>
+				</center>
+			</td>
+				</tr><tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;">
+					<td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridTableColumns__ctl3_CheckBoxActive" type="checkbox" name="DataGridTableColumns:_ctl3:CheckBoxActive" checked="checked" onclick="setDirty();" /></span>
+				</center>
+			</td><td>
+				<nobr>
+				<input name="DataGridTableColumns:_ctl3:TextboxName" type="text" value="fecha" id="DataGridTableColumns__ctl3_TextboxName" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:80px;" />
+				
+				</nobr>
+			</td><td>String</td><td align="center" style="width:35px;">
+				<input name="DataGridTableColumns:_ctl3:TextBoxUnit" type="text" id="DataGridTableColumns__ctl3_TextBoxUnit" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:35px;" />
+			</td><td>fecha</td><td>String</td><td>10</td><td>
+				<center>
+					<span disabled="disabled" style="width:20px;"><input id="DataGridTableColumns__ctl3_CheckBoxOptional" type="checkbox" name="DataGridTableColumns:_ctl3:CheckBoxOptional" checked="checked" disabled="disabled" /></span>
+				</center>
+			</td><td>
+				<center>
+					<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridTableColumns__ctl3_CheckBoxTrim" type="checkbox" name="DataGridTableColumns:_ctl3:CheckBoxTrim" onclick="setDirty();" /></span>
+				</center>
+			</td>
+				</tr><tr style="color:Black;background-color:White;font-family:Tahoma;font-size:XX-Small;">
+					<td>
+				<center>
+				<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridTableColumns__ctl4_CheckBoxActive" type="checkbox" name="DataGridTableColumns:_ctl4:CheckBoxActive" checked="checked" onclick="setDirty();" /></span>
+				</center>
+			</td><td>
+				<nobr>
+				<input name="DataGridTableColumns:_ctl4:TextboxName" type="text" value="hora" id="DataGridTableColumns__ctl4_TextboxName" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:80px;" />
+				
+				</nobr>
+			</td><td>String</td><td align="center" style="width:35px;">
+				<input name="DataGridTableColumns:_ctl4:TextBoxUnit" type="text" id="DataGridTableColumns__ctl4_TextBoxUnit" onkeypress="setDirty();" onpaste="setDirty();" onchange="setDirty();" style="font-family:Tahoma;font-size:10px;width:35px;" />
+			</td><td>hora</td><td>String</td><td>5</td><td>
+				<center>
+					<span disabled="disabled" style="width:20px;"><input id="DataGridTableColumns__ctl4_CheckBoxOptional" type="checkbox" name="DataGridTableColumns:_ctl4:CheckBoxOptional" checked="checked" disabled="disabled" /></span>
+				</center>
+			</td><td>
+				<center>
+					<span style="font-family:Tahoma;font-size:10px;width:20px;"><input id="DataGridTableColumns__ctl4_CheckBoxTrim" type="checkbox" name="DataGridTableColumns:_ctl4:CheckBoxTrim" onclick="setDirty();" /></span>
+				</center>
+			</td>
+				</tr>
+			</table>
+		</MPNS:PageView>
+
+	</MPNS:MultiPage>
+									
+</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td valign="top" width="23" align="middle"><img src="img/help.gif" onclick="Help();" style="cursor:hand"></td>
+				</tr>
+			</table>
+			<input name="TextBoxRestoreVersion" type="text" id="TextBoxRestoreVersion" style="display: none" />
+		
+<script language='javascript'>fireNameChanged = true;</script></form>
+		<script language="javascript" src="TransactionCatalogSvc.js"></script>
+	</body>
+</html>

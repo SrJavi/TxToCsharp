@@ -1,0 +1,95 @@
+<pre>
+    <code class="language-csharp" data-lang="csharp">//TX ID
+        internal const string #GUIDTX = "#ID";
+    </code>
+</pre>
+
+<pre>
+    <code class="language-csharp" data-lang="csharp">//Controller
+
+    [TransactionsService(TxGuid.#GUIDTX)]
+    public JsonResult #TX(#TXImport model)
+    {
+        var classMethod = string.Format("{0}{1}{2}",
+            System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, Const.DotSymbol,
+            System.Reflection.MethodBase.GetCurrentMethod().Name);
+        var response = GenericMethods.PerformFunction(classMethod, () => #APPHandler.#TX(model));
+        return new JsonResult { Data = response };
+    }</code>
+</pre>
+
+<pre>
+    <code class="language-csharp" data-lang="csharp">//Handler
+
+    internal static #TXModel #TX(#TXImport import)
+    {
+        var classMethod = string.Format("{0}{1}{2}", System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, Const.DotSymbol, System.Reflection.MethodBase.GetCurrentMethod().Name);
+        return BaseHandler.ExecuteAction(classMethod, () =>
+        {
+            var result = new #TXModel();
+
+            //TODO Implementar la lógica del negocio, invocar a la(s) transacciones necesarias
+            var ds = #APPDataAccess.#TX(import);
+            if (ds.GetWsMessage().HasError)
+            {
+                result.WsMessage = ds.GetWsMessage();
+                return result;
+            }
+
+            #RETURNS
+
+            return result;
+        });
+    }</code>
+</pre>
+
+<pre>
+    <code class="language-csharp" data-lang="csharp">//Model
+
+    using MDSTxLib.Generics.Models;
+    using System.Collections.Generic;
+    
+    namespace #APP.Models.#APP.#TX
+    {
+        public class #TXModel : GenericModel
+        {
+            #MODELPROPS
+        }
+    }</code>
+</pre>
+
+<pre>
+    <code class="language-csharp" data-lang="csharp">//#Import
+
+        using MDSTxLib.Generics.Models;
+
+        namespace #APP.Models.#APP.#TX
+        {
+            public class #TXImport : GenericImport
+            {#IPROPS
+            }
+        }</code>
+</pre>
+
+<pre>
+    <code class="language-csharp" data-lang="csharp">//#DataAccess
+
+    internal static DataSet #TX(#TXImport import)
+    {
+        var classMethod = string.Format("{0}{1}{2}", System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, Const.DotSymbol, System.Reflection.MethodBase.GetCurrentMethod().Name);
+        return DataAccessFactory.CreateTxDataAccessInstance(classMethod, string.Empty, TxGuid.#GUIDTX, import.RedirectGroup)
+            #DATAACCESS
+            .Execute();
+    }</code>
+</pre>
+
+<pre>
+    <code class="language-csharp" data-lang="csharp">//#TablaItem
+
+    namespace #APP.Models.#APP.#TX
+    {
+        public class #TX#TablaItem
+        {#PROPS
+        }
+    }</code>
+</pre>

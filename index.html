@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tx to C#</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container" style="width: 80%">
+        <div class="row">
+            <div class="col-md-3" style="margin-top: 45px;">
+                <div class="form-group">
+                    <label for="nombreApp">Nombre APP</label>
+                    <input type="text" class="form-control" id="nombreApp" placeholder="Nombre App">
+                </div>
+                <div class="form-group">
+                    <label for="txHtml">HTML TX</label>
+                    <textarea class="form-control" rows="10" cols="40" id="txHtml"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="nombreApp">Tipo Archivo</label>
+                    <select class="form-control" id="tipoArchivo">
+                        <option>Input</option>
+                        <option>Output</option>
+                        <option>Model</option>
+                        <option>Controller</option>
+                        <option>Handler</option>
+                        <option>DataAccess</option>
+                    </select>
+                </div>
+                <button class="btn btn-default" id="loadHtmlTX">Cargar/Preview</button>
+            </div>
+            <div class="col-md-9">
+                <h1>Tx to C#</h1>
+                <div class="row">
+                    <button class="btn btn-default pull-right">Exportar</button>
+                </div>
+                <div class="row">
+                    <div class="preview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" ></script>
+
+    <script type="text/javascript" src="js/TxToCSharp.js"></script>
+    <script>
+    //     var controller = fetch('Template/controller.html').then(function(response){ 
+    //             return response.text()
+    //     });
+    //     var tx = fetch('Export/tx.html').then(function(response){
+    //             return response.text()
+    //     });
+
+    //   $(document).ready(function() {
+
+    //     $("#loadHtmlTX").on("click", function() {
+            
+    //         let nombreApp = $("#nombreApp").val();
+
+    //         var combinedData = {"csharp":{},"tx":{} };
+    //         Promise.all([controller,tx]).then(function(values){
+    //             combinedData["csharp"] = values[0];
+    //             combinedData["tx"] = values[1];
+    //             return combinedData;
+    //         }).then(function(data){
+                
+    //             let nombreTX = $(data.tx).find("#TextBoxTransaccion").val();
+
+    //             let nombreTXUpper = nombreTX.charAt(0).toUpperCase() + nombreTX.slice(1);
+    //             let nombreTXLower = nombreTX.charAt(0).toLowerCase() + nombreTX.slice(1);
+
+    //             let nombreAppUpper = nombreApp.charAt(0).toUpperCase() + nombreApp.slice(1);
+
+    //             let html = "";
+    //             let htmlModel = "";
+                
+    //             data.csharp = data.csharp.replace(/#GUIDTX/g, nombreTXLower);
+    //             data.csharp = data.csharp.replace(/#TX/g, nombreTXUpper);
+    //             data.csharp = data.csharp.replace(/#APP/g, nombreAppUpper);
+
+    //             $(data.tx).find("#ListTables option" ).each(function( index, element ) {
+
+    //                     let table = $(element).text();
+    //                     if(table != "WsMessage") {
+    //                         let tableUpper = table.charAt(0).toUpperCase() + table.slice(1);
+                        
+    //                         html += 'result.' + tableUpper + ' = ds.GetList&#60;'+ (nombreTXUpper + '' + tableUpper) + 'Item&#62;("' + table + '");\n\t    ';
+    //                         htmlModel += 'public IList&#60;' + (nombreTXUpper + '' + tableUpper) + 'Item&#62; ' + tableUpper + ' { get; set; }\n\t    ';
+    //                     }
+    //             });
+
+    //             data.csharp = data.csharp.replace(/#RETURNS/g, html);
+    //             data.csharp = data.csharp.replace(/#MODELPROPS/g, htmlModel);
+                
+    //             let nombreTabla = $(data.tx).find("#ListTables option:selected").val().charAt(0).toUpperCase() + $(data.tx).find("#ListTables option:selected").val().slice(1);
+
+    //             data.csharp = data.csharp.replace(/#Tabla/g, nombreTabla);
+                
+    //             data.csharp = data.csharp.replace(/#ID/g, $(data.tx).find("#_transaction_guid").val());
+
+    //             let htmlProps = "";
+
+    //             $(data.tx).find("#DataGridTableColumns tr" ).each(function( index, element ) {
+
+    //                 if(index != 0 ){
+    //                     let nombreProp  = $(element).find("td").eq(4).html(); 
+
+    //                     htmlProps += 'public string ' + nombreProp + ' { get; set; }\n\t    ';
+    //                 }
+
+    //             });
+                
+    //             data.csharp = data.csharp.replace(/#PROPS/g, htmlProps);
+
+    //             return data.csharp;
+    //         }). then(function(csHtml) {
+    //             $(".preview").html(csHtml);
+    //         }).catch(function (err) {
+    //             // There was an error
+    //             console.warn('Something went wrong.', err);
+    //         });;
+    //     });
+
+            // if($("#tipoArchivo").val() == "Controller") {
+            //     $.get("Template/controller.html", function(data) {
+
+            //         let nombreTx = $("#nombreTX").val();
+
+            //         nombreTx = nombreTx.charAt(0).toUpperCase() + nombreTx.slice(1);
+
+            //         let nombreGUID = nombreTx.charAt(0).toLowerCase() + nombreTx.slice(1);
+
+            //         let nombreApp = $("#nombreApp").val().charAt(0).toUpperCase() + $("#nombreApp").val().slice(1);
+
+            //         let html = data.replace(/#APP/g, nombreApp);
+
+            //         html = html.replace(/#GUIDTX/g, nombreGUID);
+
+            //         html = html.replace(/#TX/g, nombreTx);
+
+            //         $(".preview").html(html);
+            //     });
+
+            //     } else {
+            //         $.get("Export/tx.html", function(data) {
+
+            //         $(data).find("#ListTables option" ).each(function( index ) {
+            //                 console.log( index + ": " + $( this ).text() );
+            //             });
+            //         });
+            //     }
+            // $(".result").html(
+            //         $(data).find("#TextBoxTransaccion").val()
+            //       );
+            
+        // });
+    </script>
+  </body>
+</html>
